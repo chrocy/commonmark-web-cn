@@ -1,0 +1,26 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "commonmark-web-cn", // 建议与 package.json 中的 name 保持一致
+    "compatibility_date": "2026-02-08",
+    /**
+   * 静态资源配置
+   */
+    "assets": {
+        // Vite 默认打包输出目录是 dist
+        "directory": "./dist",
+        /**
+     * SPA 路由逻辑控制 (冷静分析)：
+     * 因为你使用了 react-router-dom，如果用户直接访问 /about，
+     * 边缘节点找不到 about.html。开启此项后，Workers 会自动返回 index.html，
+     * 交由前端 React Router 接管路由。
+     */
+        "not_found_handling": "single-page-application"
+    },
+    /**
+   * 性能优化：开启观测能力
+   * 允许你在 Cloudflare 后台量化分析请求的延迟和错误率
+   */
+    "observability": {
+        "enabled": true
+    }
+}
