@@ -106,14 +106,14 @@ export const tutorialData: Record<string, TutorialStep> = {
     "7-1": {
         id: "7-1",
         instructionKey: "ex_7_1_instruction",
-        initialText: "/logo.svg",
-        correctMarkdown: "![](/logo.svg)"
+        initialText: "https://chrocy.cc.cd/logo.svg",
+        correctMarkdown: "![](https://chrocy.cc.cd/logo.svg)"
     },
     "7-2": {
         id: "7-2",
         instructionKey: "ex_7_2_instruction",
-        initialText: "![][1]\n\n[1]: \n/logo.svg",
-        correctMarkdown: "![Logo][1]\n\n[1]: \n/logo.svg \n\"Chrocy Markdown\""
+        initialText: "![][1]\n\n[1]: \nhttps://chrocy.cc.cd/logo.svg",
+        correctMarkdown: "![Logo][1]\n\n[1]: \nhttps://chrocy.cc.cd/logo.svg \n\"Chrocy Markdown\""
     },
     "8-1": {
         id: "8-1",
