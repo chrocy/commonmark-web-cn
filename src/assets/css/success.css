@@ -1,0 +1,97 @@
+/* Success Shatter Animation (Premium) */
+.success-animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.success-burst-text {
+    display: flex;
+    gap: 8px;
+    z-index: 10001;
+}
+
+.success-letter {
+    position: relative;
+    display: inline-block;
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.6), 0 0 40px rgba(168, 85, 247, 0.4);
+    /* Initial rise animation */
+    animation: letter-rise 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation-delay: calc(var(--index) * 0.05s);
+}
+
+.success-letter.shatter {
+    animation: letter-shatter-explode 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes letter-rise {
+    0% {
+        transform: translateY(100vh) scale(0.5) rotate(10deg);
+        opacity: 0;
+    }
+
+    80% {
+        transform: translateY(-5vh) scale(1.1) rotate(-5deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes letter-shatter-explode {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+        filter: blur(0px);
+    }
+
+    30% {
+        transform: translate(calc(var(--tx) * 0.2), calc(var(--ty) * 0.2)) rotate(calc(var(--rot) * 0.2)) scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0);
+        opacity: 0;
+        filter: blur(8px);
+    }
+}
+
+/* Glow effect behind text */
+.success-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: glow-pulse 1.5s ease-out infinite alternate;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+@keyframes glow-pulse {
+    from {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    to {
+        transform: scale(1.5);
+        opacity: 0.6;
+    }
+}

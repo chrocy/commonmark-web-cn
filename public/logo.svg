@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Minimalist Split-Color Logo: Cyan & Purple -->
+    <mask id="m_shape">
+        <path d="M55 145V55L100 100L145 55V145" stroke="white" stroke-width="28" stroke-linecap="square" stroke-linejoin="miter" />
+    </mask>
+    
+    <g mask="url(#m_shape)">
+        <!-- Left half: Cyan (#4fcaef) -->
+        <rect x="0" y="0" width="100" height="200" fill="#4fcaef" />
+        <!-- Right half: Purple (#a855f7) -->
+        <rect x="100" y="0" width="100" height="200" fill="#a855f7" />
+    </g>
+</svg>
